@@ -1,0 +1,5 @@
+require('entest.base')
+require('entest.highlights')
+require('entest.maps')
+require('entest.plugins')
+require('entest.macos')
