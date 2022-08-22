@@ -7,6 +7,11 @@ vim.opt.fileencoding = 'utf-8'
 -- Leader key 
 vim.g.mapleader = ','
 
+-- Newline without previous line comment 
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+
 vim.wo.number = true
 vim.opt.title = true
 vim.opt.autoindent = true

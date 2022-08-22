@@ -63,6 +63,14 @@ nvim_lsp.flow.setup {
   capabilities = capabilities
 }
 
+-- Pyright setup 
+nvim_lsp.pyright.setup {
+  -- on_attach = on_attach,
+  -- filetypes = {"python"},
+  -- cdm = { "pyright", "--stdio"},
+  -- capabilities = capabilities
+}
+
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },

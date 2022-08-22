@@ -7,13 +7,13 @@ keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
 
 -- Delete a word backwards
-keymap.set('n', 'dw', 'vb"_d')
+-- keymap.set('n', 'dw', 'vb"_d')
 
 -- Select all
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 -- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
+-- vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 -- New tab
 keymap.set('n', 'te', ':tabedit')
@@ -35,3 +35,5 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 -- Exit insert mode 
 keymap.set('i', 'jj','<ESC>A')
 keymap.set('i', 'ii', '<ESC>')
+-- Insert a new line without comment 
+keymap.set('i', '<leader>i', '<CR><C-u>')
