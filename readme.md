@@ -148,4 +148,8 @@ SETUVAR fish_pager_color_selected_prefix:\x1d
 ```
 
 
-
+## vscode setting 
+show function documentation or show hover 
+```
+Cmd K Cmd I
+```
