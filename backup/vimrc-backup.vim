@@ -41,7 +41,7 @@ set path+=**          "Search all subdirectories and recursively
 set wildmenu          "Shows multiple matches on one line
 
 " highlight syntax 
-set re = 0
+set re=0
 syntax on 
 
 " vimplug 
