@@ -1,3 +1,18 @@
+" tab width 
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set cindent 
+set autoindent 
+set smartindent 
+set mouse=a
+set hlsearch 
+set showcmd 
+set title 
+set expandtab 
+set incsearch
+
 " line number 
 set number
 hi CursorLineNr cterm=None
