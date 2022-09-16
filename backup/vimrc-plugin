@@ -17,6 +17,11 @@ set incsearch
 let mapleader = ","
 imap jj <ESC>A
 inoremap ii <ESC>
+nnoremap sh <C-w>h
+nnoremap sl <C-w>l
+nnoremap sv <C-w>v
+nnoremap ss <C-w>s
+nnoremap sc <C-w>c
 
 " color pmenu background 
 " set background=dark
