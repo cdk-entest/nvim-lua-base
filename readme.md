@@ -150,6 +150,9 @@ SETUVAR fish_pager_color_selected_prefix:\x1d
 
 ## vscode setting 
 show function documentation or show hover 
-```
+```bash
 Cmd K Cmd I
 ```
+
+## troubleshooting 
+1. [clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
