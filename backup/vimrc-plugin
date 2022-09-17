@@ -22,6 +22,7 @@ nnoremap sl <C-w>l
 nnoremap sv <C-w>v
 nnoremap ss <C-w>s
 nnoremap sc <C-w>c
+vnoremap <leader>y "+y 
 
 " netrw 
 let g:netrw_liststyle= 3
