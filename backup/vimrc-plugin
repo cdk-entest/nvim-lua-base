@@ -23,6 +23,12 @@ nnoremap sv <C-w>v
 nnoremap ss <C-w>s
 nnoremap sc <C-w>c
 
+" netrw 
+let g:netrw_liststyle= 3
+let g:netrw_winsize=30
+" map <C-a> : Lexplore<CR>
+map <leader>sf : Lexplore<CR>
+
 " color pmenu background 
 " set background=dark
 " set termguicolors
@@ -30,18 +36,11 @@ nnoremap sc <C-w>c
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" line number
+" cursorline  
 set number 
 hi CursorLineNr cterm=None
-
-" cursorline style
 set cursorline
-hi CursorLine cterm=None ctermbg=23 guibg=Grey40 
-let g:netrw_liststyle= 3
-let g:netrw_winsize=30
-map <C-a> : Lexplore<CR>
-
-" change cursor between mode
+hi CursorLine cterm=None ctermbg=238 guibg=Grey40 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 set ttimeout
