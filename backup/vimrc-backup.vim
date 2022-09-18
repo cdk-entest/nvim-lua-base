@@ -13,6 +13,13 @@ set title
 set expandtab 
 set incsearch
 
+" clipboard copy 
+" "+y
+
+" stop auto line 
+autocmd BufEnter * set formatoptions-=cro
+autocmd BufEnter * setlocal formatoptions-=cro
+
 " line number 
 set number
 hi CursorLineNr cterm=None
@@ -52,3 +59,4 @@ call plug#end()
 
 " fuzzy search keymap
 map ;f : Files<CR>
+

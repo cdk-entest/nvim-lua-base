@@ -13,6 +13,10 @@ set title
 set expandtab 
 set incsearch
 
+" stop auto from prev line
+autocmd BufEnter * set formatoptions-=cro
+autocmd BufEnter * setlocal formatoptions-=cro
+
 " basic mapping 
 let mapleader = ","
 imap jj <ESC>A
