@@ -16,6 +16,8 @@ set incsearch
 " stop auto from prev line
 autocmd BufEnter * set formatoptions-=cro
 autocmd BufEnter * setlocal formatoptions-=cro
+set formatoptions-=cro 
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " basic mapping 
 let mapleader = ","
@@ -28,6 +30,7 @@ nnoremap ss <C-w>s
 nnoremap sc <C-w>c
 vnoremap <leader>y "+y 
 
+
 " netrw 
 let g:netrw_liststyle= 3
 let g:netrw_winsize=30
@@ -35,7 +38,7 @@ let g:netrw_winsize=30
 map <leader>sf : Lexplore<CR>
 
 " color pmenu background 
-" set background=dark
+set background=dark
 " set termguicolors
 " hi Pmenu ctermbg=10 ctermfg=15 guibg=#ffffff guifg=#000000
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -68,6 +71,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 " fuzzy search keymap
