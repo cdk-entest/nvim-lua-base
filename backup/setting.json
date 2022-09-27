@@ -33,6 +33,10 @@
     "list.focusBackground": "#CCE5FFFF",
     "list.focusOutline": "#CCE5FF00",
     "editorSuggestWidget.focusHighlightForeground": "#FFF",
+    "statusBar.background": "#f3f3f3",
+    "statusBar.foreground": "#000000",
+    "statusBarItem.remoteBackground": "#f3f3f3",
+    "statusBarItem.remoteForeground": "#000000"
     },
     "[Default Dark+]": {
     "list.inactiveSelectionBackground": "#CCE5FF",
