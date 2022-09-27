@@ -37,11 +37,15 @@
     "[Default Dark+]": {
     "list.inactiveSelectionBackground": "#CCE5FF",
     "list.activeSelectionBackground": "#063970",
-    "editor.lineHighlightBackground": "#CCE5FF5F",
+    "editor.lineHighlightBackground": "#CCE5FF3F",
     "list.focusBackground": "#CCE5FF5F",
     "list.focusOutline": "#CCE5FF00",
     "list.focusForeground": "#FFFFFF",
     "editorSuggestWidget.focusHighlightForeground": "#FFF",
+    "statusBar.background": "#3e3e3e",
+    "statusBar.foreground": "#FFFFFF",
+		"statusBarItem.remoteBackground": "#3e3e3e",
+		"statusBarItem.remoteForeground": "#ffffff",
     }
   }
 }
