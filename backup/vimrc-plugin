@@ -12,6 +12,8 @@ set showcmd
 set title 
 set expandtab 
 set incsearch
+set nocp
+filetype plugin on
 
 " stop auto from prev line
 autocmd BufEnter * set formatoptions-=cro
@@ -86,6 +88,8 @@ map ;f : Files<CR>
 
 " coc vim float color 
 :highlight CocFloating ctermbg='white' ctermfg='black'
+:highlight CocMenuSel ctermbg=7
+:highlight Visual ctermbg=59
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
