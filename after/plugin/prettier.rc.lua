@@ -20,7 +20,7 @@ prettier.setup {
   trailing_comma = "es5",
   use_tabs = false,
   vue_indent_script_and_style = false,
-  bin = 'prettierd',
+  bin = 'prettier',
   filetypes = {
     "python",
     "css",

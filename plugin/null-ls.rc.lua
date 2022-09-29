@@ -1,14 +1,14 @@
 local status, null_ls = pcall(require, "null-ls")
--- if (not status) then return end
+if (not status) then return end
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
 null_ls.setup {
   sources = {
-    null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
-    }),
-    null_ls.builtins.diagnostics.fish
+   -- null_ls.builtins.diagnostics.eslint_d.with({
+   --   diagnostics_format = '[eslint] #{m}\n(#{c})'
+   -- }),
+   -- null_ls.builtins.diagnostics.fish
   },
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
