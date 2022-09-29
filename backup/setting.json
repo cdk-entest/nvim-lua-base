@@ -1,0 +1,56 @@
+{
+  "editor.minimap.enabled": false,
+  "remote.SSH.connectTimeout": 60,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "html.format.wrapLineLength": 80,
+  "eslint.format.enable": true,
+  "editor.tabSize": 2,
+  "workbench.editor.enablePreview": false,
+  "terminal.integrated.cursorStyle": "line",
+  "editor.renderWhitespace": "all",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "python.autoComplete.extraPaths": [
+    "/Users/haimtran/Library/Python/3.8/lib/python/site-packages/boto3/dynamodb"
+  ],
+  "python.analysis.extraPaths": [
+    "/Users/haimtran/Library/Python/3.8/lib/python/site-packages/boto3"
+  ],
+  "python.linting.pylintPath": "pylint",
+  "python.linting.pylintEnabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "screencastMode.onlyKeyboardShortcuts": true,
+  "editor.suggest.showStatusBar": true,
+  "python.formatting.blackArgs": ["--max-line-length", "80"],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["i", "i"],
+      "after": ["esc"]
+    },
+    {
+      "before": ["j", "j"],
+      "after": ["esc", "A"]
+    }
+  ],
+  "workbench.colorCustomizations": {
+    "list.inactiveSelectionBackground": "#CCE5FF",
+    "list.activeSelectionBackground": "#063970",
+    "editor.lineHighlightBackground": "#CCE5FF",
+    "list.focusBackground": "#CCE5FF",
+    "editorSuggestWidget.focusHighlightForeground": "#FFF"
+  },
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Default Light+",
+  "workbench.statusBar.visible": false,
+  "workbench.startupEditor": "none"
+}
+

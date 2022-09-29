@@ -44,3 +44,13 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 
+-- Pmenu popup background color
+vim.cmd('hi Pmenu ctermbg=10 ctermfg=15 guibg=#ffffff guifg=#000000')
+
+-- Cursor highlight color 
+vim.opt.cursorline = true
+vim.cmd('hi CursorLine cterm=NONE ctermbg=23 ctermfg=NONE guibg=Grey40')
+
+-- Newline without previous line comment 
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
