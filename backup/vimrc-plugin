@@ -12,17 +12,10 @@ set showcmd
 set title 
 set expandtab 
 set incsearch
-<<<<<<< HEAD
-=======
-set nocp
-filetype plugin on
 
 " stop auto from prev line
 autocmd BufEnter * set formatoptions-=cro
 autocmd BufEnter * setlocal formatoptions-=cro
-set formatoptions-=cro 
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
->>>>>>> 04febaa91e04201750e4da5f8910c4f544fbfaaf
 
 " basic mapping 
 let mapleader = ","
@@ -42,26 +35,12 @@ let g:netrw_winsize=30
 map <leader>sf : Lexplore<CR>
 
 " color pmenu background 
-<<<<<<< HEAD
 " set background=dark
-=======
-set background=dark
->>>>>>> 04febaa91e04201750e4da5f8910c4f544fbfaaf
 " set termguicolors
 " hi Pmenu ctermbg=10 ctermfg=15 guibg=#ffffff guifg=#000000
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" cursorline  
-set number 
-hi CursorLineNr cterm=None
-set cursorline
-hi CursorLine cterm=None ctermbg=238 guibg=Grey40 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-set ttimeout
-set ttimeoutlen=1
-set ttyfast
 
 " search files 
 set nocompatible
@@ -79,35 +58,57 @@ Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
-<<<<<<< HEAD
-call plug#end()
-
-=======
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'rakr/vim-one'
 call plug#end()
 
-" theme color 
+" theme colors 
+let g:airline_theme='one'
 colorscheme one
+set background=dark
+:highlight Normal ctermbg=236
+:highlight clear LineNr
+:highlight clear SignColumn
+:highlight clear CursorLineNr
+:highlight clear VertSplit
+
+" cursorline  
+set number 
 hi CursorLineNr cterm=None
 set cursorline
 hi CursorLine cterm=None ctermbg=238 guibg=Grey40 
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
 
->>>>>>> 04febaa91e04201750e4da5f8910c4f544fbfaaf
 " fuzzy search keymap
 map ;f : Files<CR>
 
 " coc vim float color 
 :highlight CocFloating ctermbg='white' ctermfg='black'
-<<<<<<< HEAD
-=======
 :highlight CocMenuSel ctermbg=7
 :highlight Visual ctermbg=59
->>>>>>> 04febaa91e04201750e4da5f8910c4f544fbfaaf
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1}}
+let g:fzf_colors =                                                                         
+    \ {'fg':     ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],                                                           
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],                                                        
+    \ 'info':    ['fg', 'PreProc'],                                                          
+    \ 'border':  ['fg', 'Ignore'],                                                           
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],                                                        
+    \ 'marker':  ['fg', 'Keyword'],                                                          
+    \ 'spinner': ['fg', 'Label'],                                                            
+    \ 'header':  ['fg', 'Comment'] } 
+
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
+
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
