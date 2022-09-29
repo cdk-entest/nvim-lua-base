@@ -70,7 +70,7 @@ set background=dark
 :highlight clear SignColumn
 :highlight clear CursorLineNr
 :highlight clear VertSplit
-
+:highlight StatusLine cterm=reverse term=reverse ctermfg=59
 " cursorline  
 set number 
 hi CursorLineNr cterm=None
