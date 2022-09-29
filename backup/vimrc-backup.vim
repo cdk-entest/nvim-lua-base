@@ -13,6 +13,16 @@ set title
 set expandtab 
 set incsearch
 
+<<<<<<< HEAD
+=======
+" clipboard copy 
+" "+y
+
+" stop auto line 
+autocmd BufEnter * set formatoptions-=cro
+autocmd BufEnter * setlocal formatoptions-=cro
+
+>>>>>>> 04febaa91e04201750e4da5f8910c4f544fbfaaf
 " line number 
 set number
 hi CursorLineNr cterm=None
@@ -52,3 +62,7 @@ call plug#end()
 
 " fuzzy search keymap
 map ;f : Files<CR>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 04febaa91e04201750e4da5f8910c4f544fbfaaf
