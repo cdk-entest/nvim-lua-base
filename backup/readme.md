@@ -1,4 +1,0 @@
-## clipboard copy 
-```
-"+y
-```
