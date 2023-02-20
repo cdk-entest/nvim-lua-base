@@ -9,6 +9,7 @@ date: 2023-20-02
 ## nvim and lua setting 
 - project structure 
 - basic lau to configure nvim 
+- how to install plugins with packer and configure in after
 - telescope and telescope filer browser 
 - nerd-font
 - lsp and langugae server 
@@ -74,19 +75,6 @@ vim.opt.wrap = false -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
-
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
--- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = '*',
-  command = "set nopaste"
-})
-
--- Add asterisks in block comments
-vim.opt.formatoptions:append { 'r' }
 ```
 
 ## Package Managment 
@@ -97,8 +85,13 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
-basic example 
+basic example, install prettier plugin, require in the below file 
 
+```bash
+lua/entest/plugins.lau 
+```
+
+with content so packer will install prettier 
 ```tsx
 local status, packer = pcall(require, "packer")
 if (not status) then
@@ -110,7 +103,7 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
+  use { "MunifTanjim/prettier.nvim" }
 end)
 ```
 
@@ -121,6 +114,33 @@ basic commands
 :PackerComplie 
 :PackerClean 
 :PackerUpdate 
+```
+
+configure prettier after loaded the package 
+```bash 
+after/plugin/prettier.rc.lua 
+```
+
+with content 
+```tsx 
+local status, prettier = pcall(require, "prettier")
+if (not status) then return end
+
+prettier.setup {
+  print_width = 80,
+  bin = 'prettier',
+  filetypes = {
+    "python",
+    "css",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "scss",
+    "less"
+  }
+}
 ```
 
 ## Language Server Protocol 
@@ -138,13 +158,10 @@ lua/entest/plugins.lua
 content 
 
 ```tsx
-use 'onsails/lspkind-nvim' -- vscode-like pictograms
 use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
 use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
 use 'hrsh7th/nvim-cmp' -- Completion
 use 'neovim/nvim-lspconfig' -- LSP
-use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
 use 'williamboman/mason.nvim'
 use 'williamboman/mason-lspconfig.nvim'
 ```
@@ -171,7 +188,100 @@ npm i typescript-language-server
 
 ## telescope and telescope file browser
 
+install telescope in lua/entest/plugins.lua 
+
+```bash
+use 'nvim-telescope/telescope.nvim'
+use 'nvim-telescope/telescope-file-browser.nvim'
+```
+
+configure telescope in after/plugins/telescope.rc.lua 
+
+```tsx
+local status, telescope = pcall(require, "telescope")
+
+if (not status) then return end
+local actions = require('telescope.actions')
+local builtin = require("telescope.builtin")
+
+local function telescope_buffer_dir()
+  return vim.fn.expand('%:p:h')
+end
+
+local fb_actions = require "telescope".extensions.file_browser.actions
+
+telescope.setup {
+  defaults = {
+    mappings = {
+      n = {
+        ["q"] = actions.close
+      },
+    },
+  },
+
+  extensions = {
+    file_browser = {
+      theme = "dropdown",
+      -- disables netrw and use telescope-file-browser in its place
+      -- hijack_netrw = true,
+      mappings = {
+        -- your custom insert mode mappings
+        ["i"] = {
+          ["<C-w>"] = function() vim.cmd('normal vbd') end,
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+          ["N"] = fb_actions.create,
+          ["h"] = fb_actions.goto_parent_dir,
+          ["/"] = function()
+            vim.cmd('startinsert')
+          end
+        },
+      },
+    },
+  },
+}
+
+telescope.load_extension("file_browser")
+
+vim.keymap.set('n', ';f',
+  function()
+    builtin.find_files({
+      no_ignore = false,
+      hidden = true
+    })
+  end)
+vim.keymap.set('n', ';r', function()
+  builtin.live_grep()
+end)
+vim.keymap.set('n', '\\\\', function()
+  builtin.buffers()
+end)
+vim.keymap.set('n', ';t', function()
+  builtin.help_tags()
+end)
+vim.keymap.set('n', ';;', function()
+  builtin.resume()
+end)
+vim.keymap.set('n', ';e', function()
+  builtin.diagnostics()
+end)
+vim.keymap.set("n", "sf", function()
+  telescope.extensions.file_browser.file_browser({
+    path = "%:p:h",
+    cwd = telescope_buffer_dir(),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40 }
+  })
+end)
+```
+
 dependencies, might need to brew install for macos
+
 - [sharkd/fd](https://github.com/sharkdp/fd) for greph filder 
 - [nvim-treesister](https://github.com/nvim-treesitter/nvim-treesitter)
 
@@ -180,8 +290,7 @@ basic setup and mappings [here](https://github.com/nvim-telescope/telescope.nvim
 telescope file browser
 - seletection by tab 
 - rename, move, copy [here](https://github.com/nvim-telescope/telescope-file-browser.nvim)
-
-need to disable loading netrw by default 
+- need to disable loading netrw by default 
 
 ## nerd-font
 - for macos brew install or manually install and then terminal (Iterm) setting to select hack nerd font. the font help display icons such as git
