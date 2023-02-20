@@ -256,3 +256,6 @@ Cmd K Cmd I
 ## troubleshooting 
 - [clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
 - if live_grep does not work, please install ripgrep for Linux 
+- nvim docs [here](https://neovim.io/doc/user/)
+- lua docs [here](https://neovim.io/doc/user/lua-guide.html)
+
