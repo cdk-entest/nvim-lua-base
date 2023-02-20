@@ -1,3 +1,11 @@
+---
+title: Nvim and Lua Setup 
+description: getting started with nvim and lua  
+author: haimtran
+publishedDate: 20/02/2023
+date: 2023-20-02
+---
+
 ## nvim and lua setting 
 - project structure 
 - basic lau to configure nvim 
@@ -81,8 +89,88 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.opt.formatoptions:append { 'r' }
 ```
 
+## Package Managment 
+install packer for Lunix [here](https://github.com/wbthomason/packer.nvim)
+
+```bash
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+basic example 
+
+```tsx
+local status, packer = pcall(require, "packer")
+if (not status) then
+  print("Packer is not installed")
+  return
+end
+
+vim.cmd [[packadd packer.nvim]]
+
+packer.startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
+end)
+```
+
+basic commands 
+
+```tsx
+:PackerSync - pay attention before removing things 
+:PackerComplie 
+:PackerClean 
+:PackerUpdate 
+```
+
+## Language Server Protocol 
+install lsp client 
+
+```tsx
+use 'neovim/nvim-lspconfig' -- LSP
+```
+
+then need to install cmp (auto completion), syntax highlight, auto tag, etc. Put below in the file 
+
+```bash 
+lua/entest/plugins.lua
+```
+content 
+
+```tsx
+use 'onsails/lspkind-nvim' -- vscode-like pictograms
+use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
+use 'hrsh7th/nvim-cmp' -- Completion
+use 'neovim/nvim-lspconfig' -- LSP
+use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+use 'williamboman/mason.nvim'
+use 'williamboman/mason-lspconfig.nvim'
+```
+
+also update after/plugin/ 
+
+```bash 
+plugin/lspconfig.lua
+after/plugin/cmp.rc.lua 
+after/plugin/autopairs.rc.lua 
+```
+
+install lsp server for python 
+
+```bash 
+npm i -g pyright
+```
+
+install lsp server for typescript 
+
+```bash 
+npm i typescript-language-server
+```
 
 ## telescope and telescope file browser
+
 dependencies, might need to brew install for macos
 - [sharkd/fd](https://github.com/sharkdp/fd) for greph filder 
 - [nvim-treesister](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -93,8 +181,19 @@ telescope file browser
 - seletection by tab 
 - rename, move, copy [here](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 
+need to disable loading netrw by default 
+
 ## nerd-font
-brew install or manually install and then terminal (Iterm) setting to select hack nerd font. the font help display icons such as git
+- for macos brew install or manually install and then terminal (Iterm) setting to select hack nerd font. the font help display icons such as git
+- for linux
+-- download nerdfont for Linux [here](https://www.nerdfonts.com/font-downloads)
+-- install nerdfont for Linux [here](https://bytexd.com/how-to-install-nerd-fonts-on-linux/)
+
+```
+download the nerdfont 
+unzip to ~/.local/share/fonts/ 
+sudo fc-cache -fv 
+```
 
 ## tmux 
 tmux can be used to fix the non-true-color terminal issue 
@@ -155,4 +254,5 @@ Cmd K Cmd I
 ```
 
 ## troubleshooting 
-1. [clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
+- [clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
+- if live_grep does not work, please install ripgrep for Linux 
