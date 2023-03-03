@@ -13,14 +13,8 @@ packer.startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  -- File Navigation -- 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-    'kyazdani42/nvim-web-devicons',
-    },
-  }
-
+  
+  use 'rakr/vim-one'
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
