@@ -357,7 +357,7 @@ Cmd K Cmd I
 - remove treesister and nvim-tree with neovim 8.0 
 - replace sumneko_lua by lua_ls with neovim 8.0 
 - LspInstall tailwinss or other langugae servers or npm install 
-- checkheath to see overall health of things  
+- checkheath to see which install has error 
 - PackerStatus to see status of plugins 
 - LSPInfor error edit ~/.local/share/.../packer/.../lspinfo.lua 
 - comment nvim_set_option_value to fix LSPInfor error 
