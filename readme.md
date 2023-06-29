@@ -17,8 +17,64 @@ date: 2023-20-02
 - fish shell and configuration 
 
 
-## project structure 
-.config/nvim 
+## Prerequisite
+
+- Install Node
+- Install nvim at least 0.9.0 
+- Install Packer package management 
+
+First, let download Node from [offical site](https://nodejs.org/en/download)
+
+```bash 
+wget https://nodejs.org/dist/v18.16.1/node-v18.16.1-linux-x64.tar.xz
+```
+
+Then extract and update the PATH 
+
+```bash 
+tar -xvzf node-v18.16.1-linux-x64.tar.xz
+```
+
+Update the PATH 
+
+```bash 
+echo 'PATH=/home/ec2-user/node-v18.16.1-linux-x64/bin:$PATH' >> ~/.bashrc
+```
+
+Second, let download nvim at least 0.9.0 from [official site](https://github.com/neovim/neovim/releases)
+
+```bash 
+wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
+```
+
+Extract and upload the PATH 
+
+```bash 
+tar -xvzf nvim-linux64.tar.gz
+```
+
+Upload the PATH 
+
+```bash 
+echo 'PATH=/home/ec2-user/nvim/nvim-linux64/bin:$PATH' >> ~/.bashrc
+```
+
+Third, install the Packer package manager for nvim by following [offical docs](https://github.com/wbthomason/packer.nvim)
+
+```bash 
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+## Project Structure 
+Let create a config director for nvim in ~/.config as 
+
+```bash 
+mdkir ~/.config/nvim 
+```
+
+Then setup the project structure as below 
+
 ```
 - init.lua 
 - after/plugin 
@@ -41,7 +97,7 @@ date: 2023-20-02
 according to the nvim documentation, all dirs in the runtimepath will be searcherd for for the plugin [here](https://neovim.io/doc/user/starting.html#load-plugins).
 
 
-## basic lua to configure nvim 
+## Lua Configuration 
 ```
 vim.cmd("autocmd!")
 
@@ -291,10 +347,10 @@ unzip to ~/.local/share/fonts/
 sudo fc-cache -fv 
 ```
 
-## tmux 
+## Tmux 
 tmux can be used to fix the non-true-color terminal issue 
 
-## fish shell and basic configuration 
+## Fish Shell 
 - run fish_config to select a font 
 - the fish backgroud color does not work 
 - customize fish_variables and fish_prompt.fish function 
@@ -343,13 +399,13 @@ SETUVAR fish_pager_color_selected_prefix:\x1d
 ```
 
 
-## vscode setting 
+## Vscode Setting 
 show function documentation or show hover 
 ```bash
 Cmd K Cmd I
 ```
 
-## troubleshooting 
+## Troubleshooting 
 - [clipboard](https://vim.fandom.com/wiki/Accessing_the_system_clipboard)
 - if live_grep does not work, please install ripgrep for Linux 
 - nvim docs [here](https://neovim.io/doc/user/)

@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste"
 })
 
-vim.cmd[[colorscheme nightfox]]
+-- vim.cmd[[colorscheme nightfox]]
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
