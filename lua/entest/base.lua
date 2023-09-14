@@ -41,6 +41,8 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste"
 })
 
+-- vim.cmd[[colorscheme nightfox]]
+
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 
@@ -54,3 +56,4 @@ vim.cmd('hi CursorLine cterm=NONE ctermbg=23 ctermfg=NONE guibg=Grey40')
 -- Newline without previous line comment 
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
