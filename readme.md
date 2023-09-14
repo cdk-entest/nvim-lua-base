@@ -342,6 +342,14 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 ```
 
+## Prettier 
+
+> [!IMPORTANT]
+> Please install prettier globally 
+
+```bash 
+npm i -g prettier
+```
 
 ## vscode setting 
 show function documentation or show hover 
