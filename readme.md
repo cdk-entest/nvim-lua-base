@@ -398,16 +398,19 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 ```
 
-## Prettier 
+## Troubleshooting  
 
 > [!IMPORTANT]
-> Please install prettier globally 
+> Please install prettier and typescript-language-server globally 
 
 ```bash 
 npm i -g prettier
 ```
 
-## Vscode Setting 
+```bash 
+npm install -g typescript-language-server typescript
+```
+
 show function documentation or show hover 
 ```bash
 Cmd K Cmd I
